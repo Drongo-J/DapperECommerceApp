@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADO.NET_Lesson12.Domain.Views"
         mc:Ignorable="d"
-        Title="ProductInfoWindow" Height="450" Width="800" Background="SpringGreen">
+        Title="ProductInfoWindow" Height="600" Width="800" Background="SpringGreen">
     <Grid>
         <StackPanel Margin="20">
             <StackPanel Margin="10"  Orientation="Horizontal">
@@ -49,7 +49,7 @@
                 </TextBlock>
 
                 <TextBlock Margin="20,0,0,0"  FontFamily="Cascadia Code SemiBold"
-                       FontSize="30"
+                      FontSize="30"
                        FontWeight="ExtraBlack"
                        Foreground="White"
                        Text="{Binding Product.UnitsInStock, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
@@ -85,7 +85,14 @@
                        Width="200"
                        Source="{Binding ImagePath}">    
                 </Image>
+
             </StackPanel>
+            <Button FontSize="40"
+                    FontFamily="Cascadia Code SemiBold"
+                    Command="{Binding OrderCommand}"
+                    Height="55"
+                    Content="Order">
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

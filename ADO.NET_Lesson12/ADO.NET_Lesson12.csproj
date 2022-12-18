@@ -72,29 +72,40 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataAccess\Abstractions\ICategoryRepository.cs" />
+    <Compile Include="DataAccess\Abstractions\IOrderDetailsRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IProductRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IUnitOfWork.cs" />
     <Compile Include="DataAccess\Concretes\CategoryRepository.cs" />
+    <Compile Include="DataAccess\Concretes\OrderDetailsRepository.cs" />
     <Compile Include="DataAccess\Concretes\ProductRepository.cs" />
     <Compile Include="DataAccess\Concretes\UnitOfWork.cs" />
     <Compile Include="DataAccess\Entities\Category.cs" />
+    <Compile Include="DataAccess\Entities\OrderDetail.cs" />
     <Compile Include="DataAccess\Entities\Product.cs" />
     <Compile Include="Domain\Commands\RelayCommand.cs" />
     <Compile Include="Domain\Helpers\ImageHelpers.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModels\HomeViewModel.cs" />
+    <Compile Include="Domain\ViewModels\OrderViewModel.cs" />
     <Compile Include="Domain\ViewModels\ProductInfoWindowViewModel.cs" />
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Domain\Views\OrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\ProductInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Views\OrderWindow.xaml.cs">
+      <DependentUpon>OrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Views\ProductInfoWindow.xaml.cs">
       <DependentUpon>ProductInfoWindow.xaml</DependentUpon>
     </Compile>
