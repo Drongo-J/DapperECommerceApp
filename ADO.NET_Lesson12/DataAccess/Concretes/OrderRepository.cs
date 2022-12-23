@@ -22,30 +22,29 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
             ConnectionString = ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
         }
 
-        public int Add(Order data)
+        public void Add(Order data)
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
                 var sql = "INSERT INTO Orders ([CustomerID],[EmployeeID],[Freight],[OrderDate],[RequiredDate],[ShipAddress],[ShipCity],[ShipCountry],[ShipName],[ShippedDate],[ShipPostalCode],[ShipVia],[ShipRegion]) " +
-                         "VALUES (@customerId, @employeeID, @freight, @orderDate, @requiredDate, @shipAdress, @shipCity, @shipCountry, @shipName, @shippedDate, @shipPostalCode, @shipVia,@shipRegion)";
+                                         "VALUES (@customerId, @employeeID, @freight, @orderDate, @requiredDate, @shipAdress, @shipCity, @shipCountry, @shipName, @shippedDate, @shipPostalCode, @shipVia,@shipRegion)";
 
-                var id = connection.QuerySingle<int>(sql, new
-                {
-                    @customerId = data.CustomerID,
-                    @employeeID = data.EmployeeID,
-                    @freight = data.Freight,
-                    @orderDate = data.OrderDate,
-                    @requiredDate = data.RequiredDate,
-                    @shipAdress = data.ShipAdress,
-                    @shipCity = data.ShipCity,
-                    @shipCountry = data.ShipCountry,
-                    @shipName = data.ShipName,
-                    @shippedDate = data.ShippedDate,
-                    @shipPostalCode = data.ShipPostalCode,
-                    @shipVia = data.ShipVia,
-                    @shipRegion = data.ShipRegion
-                });
-                return id;
+                connection.Execute(sql, new
+                                                {
+                                                    @customerId = data.CustomerID,
+                                                    @employeeID = data.EmployeeID,
+                                                    @freight = data.Freight,
+                                                    @orderDate = data.OrderDate,
+                                                    @requiredDate = data.RequiredDate,
+                                                    @shipAdress = data.ShipAdress,
+                                                    @shipCity = data.ShipCity,
+                                                    @shipCountry = data.ShipCountry,
+                                                    @shipName = data.ShipName,
+                                                    @shippedDate = data.ShippedDate,
+                                                    @shipPostalCode = data.ShipPostalCode,
+                                                    @shipVia = data.ShipVia,
+                                                    @shipRegion = data.ShipRegion});
+
             }
         }
 

@@ -10,7 +10,7 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
 {
     public class ShipperRepository : IShipperRepository
     {
-        public int Add(Shipper data)
+        public void Add(Shipper data)
         {
             throw new NotImplementedException();
         }

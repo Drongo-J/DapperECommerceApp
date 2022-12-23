@@ -21,22 +21,23 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
             ConnectionString = ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
         }
 
-        public int Add(OrderDetails data)
+        public void Add(OrderDetails data)
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
                 var sql = "INSERT INTO [Order Details] ([OrderID], [ProductID],[Quantity],[UnitPrice],[Discount]) " +
                           "VALUES (@orderId, @productId, @quantity, @unitPrice, @discount)";
 
-                var id = connection.QuerySingle<int>(sql, new 
+
+                var id = App.DB.OrderDetailsRepository.GetAll().Max(od => od.OrderID) + 1;
+                connection.Execute(sql, new 
                 {
-                    @orderId = data.OrderID,
+                    @orderId = id,
                     @productId = data.ProductID,
                     @quantity = data.Quantity,
                     @unitPrice = data.UnitPrice,
                     @discount = data.Discount
                 });
-                return id;
             }
         }
 
@@ -48,11 +49,31 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
         public OrderDetails Get(int id)
         {
             throw new NotImplementedException();
+
         }
 
         public IEnumerable<OrderDetails> GetAll()
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var sql = "SELECT * FROM [Order Details] AS OD " +
+                          "INNER JOIN Orders AS O " +
+                          "ON O.OrderID = OD.OrderID " +
+                          "INNER JOIN Products AS P " +
+                          "ON P.ProductID = OD.ProductID ";
+
+                var orderdetails = connection.Query<OrderDetails, Order, Product, OrderDetails>(sql,
+                    (orderdetail, order, product) =>
+                    {
+                        orderdetail.OrderID = order.OrderID;
+                        orderdetail.ProductID = product.ProductID;
+                        return orderdetail;
+                    },
+                    splitOn: "OrderID,ProductID"
+                    );
+
+                return orderdetails;
+            }
         }
 
         public void Update(OrderDetails data)

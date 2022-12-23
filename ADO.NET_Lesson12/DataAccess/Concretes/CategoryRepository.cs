@@ -10,7 +10,7 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
 {
     public class CategoryRepository : ICategoryRepository
     {
-        public int Add(Category data)
+        public void Add(Category data)
         {
             throw new NotImplementedException();
         }

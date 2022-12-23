@@ -10,7 +10,7 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        public int Add(Employee data)
+        public void Add(Employee data)
         {
             throw new NotImplementedException();
         }

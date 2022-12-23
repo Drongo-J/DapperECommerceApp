@@ -10,7 +10,7 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public int Add(Customer data)
+        public void Add(Customer data)
         {
             throw new NotImplementedException();
         }

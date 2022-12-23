@@ -65,13 +65,22 @@ namespace ADO.NET_Lesson12.Domain.ViewModels
             _order.ShippedDate = DateTime.Now;
 
             SubmitCommand = new RelayCommand((s) =>
-            { 
+            {
                 if (SelectedCountry != null && SelectedCountry.Trim() != string.Empty)
                 {
-                    int id = App.DB.OrderRepository.Add(_order);
-                    OrderDetails.OrderID = id;
-                    App.DB.OrderDetailsRepository.Add(OrderDetails);
-                    MessageBox.Show("Order was added successfully!");
+                    if (OrderDetails.Quantity > 0)
+                    {
+                        var id = AllOrders.Max(o => o.OrderID) + 1;
+                        _order.OrderID= id;
+                        OrderDetails.OrderID = id;
+                        App.DB.OrderRepository.Add(_order);
+                        App.DB.OrderDetailsRepository.Add(OrderDetails);
+                        MessageBox.Show("Order was added successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Quantity Must Be Greater Than 0!");
+                    }
                 }
                 else
                 {

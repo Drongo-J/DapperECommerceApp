@@ -10,6 +10,7 @@ namespace ADO.NET_Lesson12.DataAccess.Entities
     {
         public int OrderID { get; set; }
         public int ProductID { get; set; }
+        public int EmployeeID { get; set; }
         public decimal UnitPrice { get; set; }
         public short Quantity { get; set; }
         public float Discount { get; set; }
