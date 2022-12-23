@@ -10,7 +10,7 @@ namespace ADO.NET_Lesson12.DataAccess.Abstractions
     {
         IEnumerable<T> GetAll();
         T Get(int id);
-        void Add(T data);
+        int Add(T data);
         void Delete(T data);
         void Update(T data);
     }

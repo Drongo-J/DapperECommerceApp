@@ -12,5 +12,9 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
         public ICategoryRepository CategoryRepository => new CategoryRepository();
 
         public IProductRepository ProductRepository => new ProductRepository();
+
+        public IOrderRepository OrderRepository => new OrderRepository();
+
+        public IOrderDetailsRepository OrderDetailsRepository => new OrderDetailsRepository();
     }
 }

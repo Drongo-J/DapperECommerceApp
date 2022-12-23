@@ -8,29 +8,29 @@ using System.Threading.Tasks;
 
 namespace ADO.NET_Lesson12.DataAccess.Concretes
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CustomerRepository : ICustomerRepository
     {
-        public int Add(Category data)
+        public int Add(Customer data)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Category data)
-        {       
-            throw new NotImplementedException();
-        }
-
-        public Category Get(int id)
+        public void Delete(Customer data)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Category> GetAll()
+        public Customer Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Category data)
+        public IEnumerable<Customer> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Customer data)
         {
             throw new NotImplementedException();
         }

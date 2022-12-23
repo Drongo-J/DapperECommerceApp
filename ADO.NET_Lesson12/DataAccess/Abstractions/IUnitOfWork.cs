@@ -9,6 +9,8 @@ namespace ADO.NET_Lesson12.DataAccess.Abstractions
     public interface IUnitOfWork
     {
         ICategoryRepository CategoryRepository { get; }
+        IOrderRepository OrderRepository { get; }
+        IOrderDetailsRepository OrderDetailsRepository{ get; }
         IProductRepository ProductRepository { get; }   
     }
 }

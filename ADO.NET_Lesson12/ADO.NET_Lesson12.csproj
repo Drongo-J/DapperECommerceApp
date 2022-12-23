@@ -72,17 +72,29 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataAccess\Abstractions\ICategoryRepository.cs" />
+    <Compile Include="DataAccess\Abstractions\ICustomerRepository.cs" />
+    <Compile Include="DataAccess\Abstractions\IEmployeeRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IOrderDetailsRepository.cs" />
+    <Compile Include="DataAccess\Abstractions\IOrderRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IProductRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IRepository.cs" />
+    <Compile Include="DataAccess\Abstractions\IShipperRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IUnitOfWork.cs" />
     <Compile Include="DataAccess\Concretes\CategoryRepository.cs" />
+    <Compile Include="DataAccess\Concretes\CustomerRepository.cs" />
+    <Compile Include="DataAccess\Concretes\EmployeeRepository.cs" />
     <Compile Include="DataAccess\Concretes\OrderDetailsRepository.cs" />
+    <Compile Include="DataAccess\Concretes\OrderRepository.cs" />
     <Compile Include="DataAccess\Concretes\ProductRepository.cs" />
+    <Compile Include="DataAccess\Concretes\ShipperRepository.cs" />
     <Compile Include="DataAccess\Concretes\UnitOfWork.cs" />
     <Compile Include="DataAccess\Entities\Category.cs" />
+    <Compile Include="DataAccess\Entities\Customer.cs" />
+    <Compile Include="DataAccess\Entities\Employee.cs" />
+    <Compile Include="DataAccess\Entities\Order.cs" />
     <Compile Include="DataAccess\Entities\OrderDetail.cs" />
     <Compile Include="DataAccess\Entities\Product.cs" />
+    <Compile Include="DataAccess\Entities\Shipper.cs" />
     <Compile Include="Domain\Commands\RelayCommand.cs" />
     <Compile Include="Domain\Helpers\ImageHelpers.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />

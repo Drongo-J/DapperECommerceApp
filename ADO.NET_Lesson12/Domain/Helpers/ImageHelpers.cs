@@ -21,7 +21,9 @@ namespace ADO.NET_Lesson12.Domain.Helpers
                 Bitmap bitmap1 = new Bitmap(img);
                 var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "ServerImages");
                 Directory.CreateDirectory(path);
-                bitmap1.Save($@"{path}\image{counter}.png");
+                var p = $@"{path}\image{counter}.png";
+                if (!File.Exists(p))
+                    bitmap1.Save(p);
                 var imagepath = $@"{path}\image{counter}.png";
                 return imagepath;
             }

@@ -20,7 +20,7 @@ namespace ADO.NET_Lesson12.DataAccess.Concretes
             ConnectionString = ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
         }
 
-        public void Add(Product data)
+        public int Add(Product data)
         {
             throw new NotImplementedException();
         }
